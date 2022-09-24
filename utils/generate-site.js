@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from 'fs';
 
 const writeFile = fileContent => {
     return new Promise((resolve, reject) => {
@@ -16,4 +16,4 @@ const writeFile = fileContent => {
     });
 };
 
-module.exports = writeFile;
+export default writeFile;

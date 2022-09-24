@@ -1,4 +1,4 @@
-module.exports = cardTemplate => {
+export default cardTemplate => {
     return `
 <!DOCTYPE html>
 <html lang="en">
@@ -25,4 +25,4 @@ module.exports = cardTemplate => {
 </body>
 </html>    
 `;
-}
+};
