@@ -26,6 +26,6 @@ test('test card html generator', () => {
     const engineer = new Engineer(nameIn, idIn, emailIn, userIn);
     const enAtts = engineer.getEngineerAttributes();
     for (let i = 0; i < enAtts.length; i++) {
-        expect(engineer.formatCard(enAtts)).stringContaining(enAtts[i]);
+        expect(engineer.formatCard(enAtts)).toEqual(expect.stringContaining(enAtts[i].toString()));
     }
 });
