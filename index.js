@@ -5,6 +5,7 @@ import witeFile from './utils/generate-site.js';
 import Engineer from './lib/Engineer.js';
 import Intern from './lib/Intern.js';
 import Manager from './lib/Manager.js';
+import writeFile from './utils/generate-site.js';
 
 function App() {
     //cumulitave card string
@@ -89,41 +90,59 @@ App.prototype.initApp = function() {
         .prompt(app.managerPromptQs)
         .then(({ name,id,email,office }) => {
             app.addManager(name,id,email,office); 
+            app.addTeamMember();
         })
-        .then(() => app.addTeamMember());
+        
 };
 
 
 App.prototype.addTeamMember = function () {
-    //inquirer promt for user action
     inquirer
         .prompt(app.addTeamMemberPromptQs)
         .then(({ userAction }) => {
             if (userAction === 'Add Engineer') {
                 //add en prompt
+                inquirer
+                    .prompt(app.engineerPromptQs)
+                    .then(({ name,id,email,userName }) => {
+                        app.addEngineer(name,id,email,userName);
+                        app.addTeamMember();
+                    });
                 
-                app.addTeamMember();
             } else if (userAction === 'Add Intern') {
                 // add in prompt
-                console.log('in');
-                app.addTeamMember();
+                inquirer
+                    .prompt(app.internPromptQs)
+                    .then(({ name,id,email,school }) => {
+                        app.addIntern(name,id,email,school);
+                        app.addTeamMember();
+                    });
             } else {
                 // write to file and end app
-                return app.cardStr;
+                console.log(app.cardStr);
+                var pageStr = generatePage(app.cardStr);
+                writeFile(pageStr);
             }
         });
+      
 };
 
 App.prototype.addManager = function(name,id,email,office) {
-
+    var manager = new Manager(name,id,email,office);
+    var manAtts = manager.getManagerAttributes();
+    app.cardStr += manager.formatCard(manAtts);
 };
 
 App.prototype.addEngineer = function(name,id,email,userName) {
-
+    var engineer = new Engineer(name,id,email,userName);
+    var enAtts = engineer.getEngineerAttributes();
+    app.cardStr += engineer.formatCard(enAtts);
 };
 
 App.prototype.addIntern = function(name,id,email,school) {
-
+    var intern = new Intern(name,id,email,school);
+    var inAtts = intern.getInternAttributes();
+    app.cardStr += intern.formatCard(inAtts);
 };
 
 
