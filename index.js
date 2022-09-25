@@ -119,7 +119,7 @@ App.prototype.addTeamMember = function () {
                     });
             } else {
                 // write to file and end app
-                console.log(app.cardStr);
+                //console.log(app.cardStr);
                 var pageStr = generatePage(app.cardStr);
                 writeFile(pageStr);
             }
