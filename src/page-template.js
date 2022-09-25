@@ -11,6 +11,10 @@ export default cardTemplate => {
 </head>
 <body>
 
+    <div class="jumbotron bg-danger text-white text-center">
+        <h1 class="display-4">Team Profile</h1>
+    </div>
+
     <div class="container">
         <div class="card-deck">
             ${cardTemplate}
