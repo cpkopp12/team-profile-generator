@@ -86,9 +86,50 @@ function App() {
 App.prototype.initApp = function() {
     //inquirer prompt for manager
     inquirer
-        .prompt(this.managerPromptQs)
-        .then(inqObj => console.log(inqObj));
+        .prompt(app.managerPromptQs)
+        .then(({ name,id,email,office }) => {
+            app.addManager(name,id,email,office); 
+        })
+        .then(() => app.addTeamMember());
 };
 
+
+App.prototype.addTeamMember = function () {
+    //inquirer promt for user action
+    inquirer
+        .prompt(app.addTeamMemberPromptQs)
+        .then(({ userAction }) => {
+            if (userAction === 'Add Engineer') {
+                //add en prompt
+                
+                app.addTeamMember();
+            } else if (userAction === 'Add Intern') {
+                // add in prompt
+                console.log('in');
+                app.addTeamMember();
+            } else {
+                // write to file and end app
+                return app.cardStr;
+            }
+        });
+};
+
+App.prototype.addManager = function(name,id,email,office) {
+
+};
+
+App.prototype.addEngineer = function(name,id,email,userName) {
+
+};
+
+App.prototype.addIntern = function(name,id,email,school) {
+
+};
+
+
+
+
+
+// initialize app
 const app = new App();
 app.initApp();
