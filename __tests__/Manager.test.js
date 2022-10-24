@@ -1,3 +1,4 @@
+//import Manager from '../lib/Manger.js';
 const Manager = require('../lib/Manager.js');
 
 //make the repeating test inputs global

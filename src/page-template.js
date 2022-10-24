@@ -1,4 +1,4 @@
-export default cardTemplate => {
+module.exports = cardTemplate => {
     return `
 <!DOCTYPE html>
 <html lang="en">

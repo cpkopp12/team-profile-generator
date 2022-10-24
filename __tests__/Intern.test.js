@@ -1,4 +1,4 @@
-const Intern = require('../lib/Intern.js');
+const Intern = require('../lib/Intern');
 
 //make the repeating test inputs global
 const nameIn = 'Dave';

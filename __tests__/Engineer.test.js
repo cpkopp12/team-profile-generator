@@ -1,4 +1,5 @@
-const Engineer = require('../lib/Engineer.js');
+
+const Engineer = require("../lib/Engineer");
 
 //make the repeating test inputs global
 const nameIn = 'Dave';

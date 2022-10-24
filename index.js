@@ -1,12 +1,17 @@
 //Imports
-import inquirer from 'inquirer';
-import generatePage from './src/page-template.js';
+const inquirer = require('inquirer');
+const generatePage = require('./src/page-template.js');
+const writeFile = require('./utils/generate-site.js');
+const Engineer = require('./lib/Engineer.js');
+const Intern = require('./lib/Intern.js');
+const Manager = require('./lib/Manager.js');
+/*
 import witeFile from './utils/generate-site.js';
 import Engineer from './lib/Engineer.js';
 import Intern from './lib/Intern.js';
 import Manager from './lib/Manager.js';
 import writeFile from './utils/generate-site.js';
-
+*/
 function App() {
     //cumulitave card string
     this.cardStr = '';
