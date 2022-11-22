@@ -21,7 +21,7 @@ Takes user input in comand line and generates html file for your team profile pa
   
 
 ## Installation
-Install into an empty directory. At the root of the directory, use the commandline to enter the command 'node index' to initiate the application.
+Install into an empty directory. At the root of the directory, first use the commandline to run 'npm install' and then enter 'node index' to initiate the application.
 
 ## Usage
 
